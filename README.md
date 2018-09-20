@@ -23,9 +23,11 @@ Basebot includes two slash commands, `/scores [optional date]` and `/game [team]
 ![simple /scores](https://user-images.githubusercontent.com/1112365/45724585-e06b3680-bb84-11e8-9a84-16b5515c10fc.gif)
 
 #### Example 2
+
 ![/scores yesterday](https://user-images.githubusercontent.com/1112365/45724587-e103cd00-bb84-11e8-8acd-38a28d272630.gif)
 
 #### Example 3
+
 ![/scores 7/12](https://user-images.githubusercontent.com/1112365/45724588-e103cd00-bb84-11e8-94e1-a0b4096a51ac.gif)
 
 ### /game

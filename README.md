@@ -37,7 +37,13 @@ You also may add a date after the team, e.g. `/game bos 10/30/2013`.
 If you forget how it works, you can use `/game help` for a reminder.
 
 #### Example 1
+
 ![/game bos](https://user-images.githubusercontent.com/1112365/45724589-e103cd00-bb84-11e8-8493-5e76a9bc65e7.gif)
 
 #### Example 2
+
 ![/game bos ](https://user-images.githubusercontent.com/1112365/45724591-e103cd00-bb84-11e8-951c-6c95fa715b0d.gif)
+
+## Help!
+
+For support, the best way to reach me is to open an [issue](https://github.com/danab/basebot/issues). If you prefer you may also e-mail me at danab@outlook.com.

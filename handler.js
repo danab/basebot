@@ -1,22 +1,34 @@
 const querystring = require('querystring');
 
-const authorizer = require('./authorizer/authorizeRequest');
+const { authorizer, getSuccessHTML } = require('./authorizer/authorizeRequest');
 const scoresHandler = require('./scores/scoresHandler');
 const gameHandler = require('./game/gameHandler');
 
+const errorResp = {
+	responseType: 'ephemeral',
+	text: 'An unknown error has occurred. Sorry! ¯_(ツ)_/¯'
+};
+
 module.exports.authorization = async event => {
-	const code = event.queryStringParameters.code;
 	try {
 		// I don't understand oauth much, do I need to do anything with this?
+		const code = event.queryStringParameters.code;
 		const resp = await authorizer(code); // eslint-disable-line no-unused-vars
+		const html = await getSuccessHTML();
+
 		return {
 			statusCode: 200,
-			body: 'Authorization happened'
+			headers: {
+				'Content-Type': 'text/html'
+			},
+			body: html
 		};
 	} catch (err) {
+		console.error(err); // eslint-disable-line no-console
 		return {
 			statusCode: 500,
-			body: 'Authorization probably did not happen. Dunno.'
+			body:
+				'Error! Authorization probably did not happen, for an unknown reason. Please try again?\n\nContact github.com/danab/basebot to report ongoing issues.'
 		};
 	}
 };
@@ -30,13 +42,9 @@ module.exports.game = async event => {
 			body: JSON.stringify(resp)
 		};
 	} catch (err) {
-		const resp = {
-			responseType: 'ephemeral',
-			text: 'An unknown error has occurred. Sorry! ¯_(ツ)_/¯'
-		};
 		return {
 			statusCode: 200,
-			body: JSON.stringify(resp)
+			body: JSON.stringify(errorResp)
 		};
 	}
 };
@@ -51,13 +59,9 @@ module.exports.scores = async event => {
 			body: JSON.stringify(resp)
 		};
 	} catch (err) {
-		const resp = {
-			responseType: 'ephemeral',
-			text: 'An unknown error has occurred. Sorry! ¯_(ツ)_/¯'
-		};
 		return {
 			statusCode: 200,
-			body: JSON.stringify(resp)
+			body: JSON.stringify(errorResp)
 		};
 	}
 };

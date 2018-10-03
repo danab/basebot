@@ -49,12 +49,12 @@ const formatLineHeader = linescore => {
 		let extraInnings = linescore.inning.length;
 		let extraInning = 10;
 		while (extraInning <= extraInnings) {
-			top += ' ' + extraInning;
+			top += ' ' + extraInning + ' ';
 			extraInning += 1;
 		}
 	}
 
-	top += '       R   H   E   \n';
+	top += '      R   H   E   \n';
 	return top;
 };
 

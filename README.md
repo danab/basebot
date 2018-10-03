@@ -1,5 +1,9 @@
 # Basebot
 
+## Official
+
+Basebot is officially on the Slack App store. [Woo!](https://danab.github.io/basebot/)
+
 ## Install
 
 If you want to install `Basebot` use the link below.
